@@ -1,0 +1,58 @@
+{
+  "uid" : "1ac62f9865c47c93",
+  "name" : "When the user enters username as 'deepu@podop.com' and password as 'podop123'",
+  "fullName" : "To test the login functionality: User Login to the application.When the user enters username as 'deepu@podop.com' and password as 'podop123'",
+  "historyId" : "415fe47677689017b94f1bf7b3e0efbe",
+  "time" : {
+    "start" : 1637233670560,
+    "stop" : 1637233675515,
+    "duration" : 4955
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "wdio"
+  }, {
+    "name" : "language",
+    "value" : "javascript"
+  }, {
+    "name" : "thread",
+    "value" : "0-0"
+  }, {
+    "name" : "suite",
+    "value" : "To test the login functionality: User Login to the application"
+  }, {
+    "name" : "testClass",
+    "value" : "To test the login functionality: User Login to the application"
+  }, {
+    "name" : "testMethod",
+    "value" : "When the user enters username as 'deepu@podop.com' and password as 'podop123'"
+  }, {
+    "name" : "package",
+    "value" : "To test the login functionality: User Login to the application"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ {
+    "name" : "browser",
+    "value" : "Chrome-96.0.4664.45"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1ac62f9865c47c93.json",
+  "parameterValues" : [ "Chrome-96.0.4664.45" ]
+}
