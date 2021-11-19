@@ -21,6 +21,7 @@ pipeline {
                sh 'npm run test'
            }
        }
+       stage('reports') {
     post {
     always {
             allure([
@@ -30,6 +31,7 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'reports/allure-results']]
             ])
+    }
     }
    }
 }
