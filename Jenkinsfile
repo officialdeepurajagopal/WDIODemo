@@ -21,9 +21,8 @@ pipeline {
                sh 'npm run test'
            }
        }
-       stage('reports') {
-    steps {
-    script {
+    post {
+    always {
             allure([
                     includeProperties: false,
                     jdk: '',
@@ -32,7 +31,5 @@ pipeline {
                     results: [[path: 'reports/allure-results']]
             ])
     }
-    }
    }
-}
 }
