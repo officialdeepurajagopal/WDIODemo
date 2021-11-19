@@ -33,16 +33,16 @@ pipeline {
             ])
         }
         success {
-            echo 'I succeeded!'
+            echo 'Job succeeded!'
         }
         unstable {
-            echo 'I am unstable :/'
+            echo 'Tests are unstable :/'
         }
         failure {
-            echo 'I failed :('
+            echo 'Job failed :('
         }
         changed {
-            echo 'Things were different before...'
+            echo 'Results were different before...'
         }
     }
 }
