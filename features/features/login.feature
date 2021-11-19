@@ -7,7 +7,7 @@ Feature: To test the login functionality
     Scenario: User Login to the application
 
         When the user enters username as '<username>' and password as '<password>'
-        Then User verify login successful for '<password>'
+        Then User verify login successful for '<username>'
         Examples:
 
             | username        | password |
