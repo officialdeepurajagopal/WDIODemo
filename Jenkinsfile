@@ -33,23 +33,13 @@ pipeline {
             ])
         }
         success {
-            emailext(
-    attachmentsPattern: "allure-report.zip", 
-    body: '', 
-    subject: "Allure Report", 
-    to: "beingdeepurajagopal@gmail.com"
-  )
+          
         }
         unstable {
             echo 'Tests are unstable :/'
         }
         failure {
-            emailext(
-    attachmentsPattern: "reports/allure-results", 
-    body: '', 
-    subject: "Allure Report", 
-    to: "beingdeepurajagopal@gmail.com"
-  )
+          
         }
         changed {
             echo 'Results were different before...'
