@@ -39,7 +39,12 @@ pipeline {
             echo 'Tests are unstable :/'
         }
         failure {
-            echo 'Job failed :('
+            emailext(
+    attachmentsPattern: "reports/allure-results", 
+    body: '', 
+    subject: "Allure Report", 
+    to: "beingdeepurajagopal@gmail.com"
+  )
         }
         changed {
             echo 'Results were different before...'
