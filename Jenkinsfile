@@ -34,7 +34,7 @@ pipeline {
         }
         success {
             emailext(
-    attachmentsPattern: "reports/allure-results", 
+    attachmentsPattern: "allure-report.zip", 
     body: '', 
     subject: "Allure Report", 
     to: "beingdeepurajagopal@gmail.com"
