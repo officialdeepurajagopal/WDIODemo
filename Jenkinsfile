@@ -33,7 +33,12 @@ pipeline {
             ])
         }
         success {
-            echo 'Job succeeded!'
+            emailext(
+    attachmentsPattern: "reports/allure-results", 
+    body: '', 
+    subject: "Allure Report", 
+    to: "beingdeepurajagopal@gmail.com"
+  )
         }
         unstable {
             echo 'Tests are unstable :/'
