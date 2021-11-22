@@ -21,23 +21,6 @@ pipeline {
                sh 'npm run test'
            }
        }
-       stage('Email Report') {
-    // Change the recipent address
-    sh "zip -r allure-report.zip allure-report"
-    def mailRecipients = "beingdeepurajagopal@gmail.com"
-    env.ForEmailPlugin = env.WORKSPACE
-    if(fileExists('allure-report.zip')){
-        emailext(
-            to: "${mailRecipients}",
-            from: "beingdeepurajagopal@gmail.com",
-            subject: "Allure Report",
-            body: "PFA",
-            attachmentsPattern: 'allure-report.zip'
-        )
-    } else{
-        echo("COULD NOT FIND FILE TO ATTACH")
-        }
-}
     }
     post {
         always {
