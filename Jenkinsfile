@@ -39,7 +39,7 @@ pipeline {
             echo 'Tests are unstable :/'
         }
         failure {
-          
+          echo 'Failed....!'
         }
         changed {
             echo 'Results were different before...'
