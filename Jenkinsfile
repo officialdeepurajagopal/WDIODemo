@@ -31,20 +31,6 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'reports/allure-results']]
             ])
-            sh "zip -r allure-report.zip allure-report"
-    def mailRecipients = "godsdeepu@gmail.com"
-    env.ForEmailPlugin = env.WORKSPACE
-    if(fileExists('allure-report.zip')){
-        emailext(
-            to: "${mailRecipients}",
-            from: "beingdeepurajagopal@gmail.com",
-            subject: "Allure Report",
-            body: "PFA",
-            attachmentsPattern: 'allure-report.zip'
-        )
-    } else{
-        echo("COULD NOT FIND FILE TO ATTACH")
-        }
         }
         success {
            echo 'passed'
@@ -58,5 +44,23 @@ pipeline {
         changed {
             echo 'Results were different before...'
         }
+
+        stage('Email Report') {
+    // Change the recipent address
+    sh "zip -r allure-report.zip allure-report"
+    def mailRecipients = "godsdeepu@gmail.com"
+    env.ForEmailPlugin = env.WORKSPACE
+    if(fileExists('allure-report.zip')){
+        emailext(
+            to: "${mailRecipients}",
+            from: "beingdeepurajagopal@gmail.com",
+            subject: "Allure Report",
+            body: "PFA",
+            attachmentsPattern: 'allure-report.zip'
+        )
+    } else{
+        echo("COULD NOT FIND FILE TO ATTACH")
+        }
+}
     }
 }
