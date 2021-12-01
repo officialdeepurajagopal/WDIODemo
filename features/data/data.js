@@ -1,7 +1,7 @@
 module.exports= {
     JP : [
         {
-            url: "http://dashboard.podop.com"
+            url: "https://dashboard.podop.com/"
         }
     ]
 

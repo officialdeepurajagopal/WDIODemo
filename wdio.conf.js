@@ -1,4 +1,4 @@
-
+const utils = require('../WDIODemo/features/utils/returnTag.js');
 exports.config = {
     //
     // ====================
@@ -24,6 +24,14 @@ exports.config = {
     specs: [
         './features/**/*.feature'
     ],
+    suites: {
+        smoke: [
+            './features/features/US/*.feature'
+        ],
+        otherFeature: [
+            // ...
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -50,20 +58,28 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
+    capabilities: [
 
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 1,
+        // maxInstances: 1,
         //
-        browserName: 'chrome',
-        acceptInsecureCerts: true
+        {
+            browserName: 'chrome'
+        },
+        {
+            browserName: 'firefox'
+        }
+        
+
+        // acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+
+],
     //
     // ===================
     // Test Configurations
@@ -167,7 +183,7 @@ exports.config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: utils.returnTag(),
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -221,8 +237,13 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        const chai = require("chai");
+
+        global.expect = chai.expect;
+        global.assert = chai.assert;
+        global.should = chai.should();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

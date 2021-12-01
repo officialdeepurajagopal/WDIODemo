@@ -14,6 +14,12 @@ When('the user enters username as {string} and password as {string}', function (
 
 });
 
-Then('User verify login successful for {string}', (user) =>{
+Then('user logout from the application', function () {
+
+    homePage.logoutUser();
+
+});
+
+Then('User verify login successful for {string}', (user) => {
     homePage.validateLogin(user);
 });
