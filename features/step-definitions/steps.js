@@ -1,18 +1,18 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const data = require('../data/data.js');
 const loginPage = require('../pages/login.page');
 const homePage = require('../pages/home.page');
 
 
-Given('User goes to PodOp page', () => {
-    loginPage.open('https://dashboard.podop.com');
+Given('User goes to Login page', () => {
+    loginPage.open(data.url);
 })
 
 
-When('the user enters username as {string} and password as {string}', function (username, password) {
+When(/^the user enters username as "([^"]*)" and password as "([^"]*)"$/, (username, password) => {
 
     loginPage.enterCredentials(username, password);
-
-});
+  });
 
 Then('user logout from the application', function () {
 
@@ -20,6 +20,6 @@ Then('user logout from the application', function () {
 
 });
 
-Then('User verify login successful for {string}', (user) => {
+Then(/^User verify login successful for "([^"]*)"$/, (user) => {
     homePage.validateLogin(user);
 });

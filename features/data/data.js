@@ -1,8 +1,5 @@
 module.exports= {
-    JP : [
-        {
-            url: "https://dashboard.podop.com/"
-        }
-    ]
-
+            url: "https://www.saucedemo.com/",
+            username: "standard_user",
+            password: "secret_sauce"
 }

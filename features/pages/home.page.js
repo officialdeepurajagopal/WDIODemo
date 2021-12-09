@@ -6,16 +6,16 @@ class HomePage extends BasePage {
     }
 
     get btnLoggedInUserName(){
-        return $('(//button)[2]');
+        return $('//button[@id="react-burger-menu-btn"]');
     }
 
     get btnSignOut(){
-        return $("//button[contains(text(), 'Sign Out')]");
+        return $("//a[@id='logout_sidebar_link']");
     }
 
    validateLogin(text){
-       browser.pause(10000);
-    expect(this.loggedInUserName(text)).to.exist;
+    browser.pause(10000);
+    expect(this.loggedInUserName).to.exist;
    }
 
    logoutUser(){
